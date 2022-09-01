@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/navigation_top_news">
+
+    <fragment
+        android:id="@+id/navigation_top_news"
+        android:name="com.syoon.news.app.ui.TopNewsFragment"
+        android:label="@string/top_news"
+        tools:layout="@layout/fragment_top_news" />
+
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="com.syoon.news.app.ui.CategoriesFragment"
+        android:label="@string/categories"
+        tools:layout="@layout/fragment_categories" />
+
+    <fragment
+        android:id="@+id/navigation_saved"
+        android:name="com.syoon.news.app.ui.SavedFragment"
+        android:label="@string/saved"
+        tools:layout="@layout/fragment_saved" />
+
+</navigation>
