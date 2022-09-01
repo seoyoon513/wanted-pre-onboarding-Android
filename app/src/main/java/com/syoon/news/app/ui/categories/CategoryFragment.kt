@@ -1,4 +1,4 @@
-package com.syoon.news.app.ui
+package com.syoon.news.app.ui.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.syoon.news.app.R
 
-class CategoriesFragment: Fragment() {
+class CategoryFragment: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_categories, container, false)
+        return inflater.inflate(R.layout.fragment_category, container, false)
     }
 }
