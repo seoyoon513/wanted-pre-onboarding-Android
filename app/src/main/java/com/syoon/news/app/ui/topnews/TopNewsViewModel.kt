@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.syoon.news.app.model.News
+import com.syoon.news.app.model.TopNewsDto
 import com.syoon.news.app.repository.TopNewsRepository
 import com.syoon.news.app.common.Constant.Companion.API_KEY
-import com.syoon.news.app.model.TopNewsDto
 import kotlinx.coroutines.launch
 
 class TopNewsViewModel: ViewModel() {

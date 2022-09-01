@@ -1,6 +1,5 @@
 package com.syoon.news.app.network
 
-import com.syoon.news.app.model.News
 import com.syoon.news.app.model.TopNewsDto
 import retrofit2.http.GET
 import retrofit2.http.Query

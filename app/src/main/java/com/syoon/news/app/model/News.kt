@@ -12,3 +12,5 @@ data class News(
 data class TopNewsDto(
     val articles: List<News>
 )
+
+

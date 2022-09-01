@@ -8,26 +8,31 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.syoon.news.app.R
+import com.syoon.news.app.common.BaseFragment
+import com.syoon.news.app.databinding.FragmentTopNewsBinding
 
-class TopNewsFragment: Fragment() {
+class TopNewsFragment: BaseFragment<FragmentTopNewsBinding>(FragmentTopNewsBinding::inflate) {
 
-    val topNewsViewModel: TopNewsViewModel by lazy {
+    private val topNewsViewModel: TopNewsViewModel by lazy {
         ViewModelProvider(this).get(TopNewsViewModel::class.java)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_top_news, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) {
-            Log.d("TopNewsFragment", "items=$it")
+        setListAdapter()
+//        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) {
+//            Log.d("TopNewsFragment", "items=$it")
+//        }
+
+    }
+
+    private fun setListAdapter() {
+        val topNewsAdapter = TopNewsAdapter()
+        binding.rvTopNews.adapter = topNewsAdapter
+        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) { topNews ->
+            topNewsAdapter.submitList(listOf(topNews))
         }
     }
 }
