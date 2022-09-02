@@ -1,6 +1,6 @@
 package com.syoon.news.app.network
 
-import com.syoon.news.app.common.Constant.Companion.BASE_URL
+import com.syoon.news.app.utils.Constant.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

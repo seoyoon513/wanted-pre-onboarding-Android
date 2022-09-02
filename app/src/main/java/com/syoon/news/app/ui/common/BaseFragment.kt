@@ -1,4 +1,4 @@
-package com.syoon.news.app.common
+package com.syoon.news.app.ui.common
 
 import android.os.Bundle
 import android.view.LayoutInflater

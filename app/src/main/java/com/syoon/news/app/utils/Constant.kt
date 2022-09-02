@@ -1,4 +1,4 @@
-package com.syoon.news.app.common
+package com.syoon.news.app.utils
 
 class Constant {
     companion object {

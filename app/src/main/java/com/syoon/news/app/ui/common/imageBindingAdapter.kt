@@ -1,4 +1,4 @@
-package com.syoon.news.app.common
+package com.syoon.news.app.ui.common
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

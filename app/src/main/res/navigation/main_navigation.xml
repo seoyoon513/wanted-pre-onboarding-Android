@@ -9,7 +9,11 @@
         android:id="@+id/navigation_top_news"
         android:name="com.syoon.news.app.ui.topnews.TopNewsFragment"
         android:label="@string/top_news"
-        tools:layout="@layout/fragment_top_news" />
+        tools:layout="@layout/fragment_top_news" >
+        <action
+            android:id="@+id/action_navigation_top_news_to_news_detail"
+            app:destination="@id/navigation_news_detail" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_categories"
@@ -22,5 +26,11 @@
         android:name="com.syoon.news.app.ui.SavedFragment"
         android:label="@string/saved"
         tools:layout="@layout/fragment_saved" />
+
+    <fragment
+        android:id="@+id/navigation_news_detail"
+        android:name="com.syoon.news.app.ui.newsdetail.NewsDetailFragment"
+        android:label="NewsDetailFragment"
+        tools:layout="@layout/fragment_news_detail"/>
 
 </navigation>

@@ -8,8 +8,9 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_news_detail"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:background="@color/news_bluegrey"
+        android:paddingEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -64,6 +65,7 @@
         android:layout_height="218dp"
         android:layout_margin="20dp"
         android:scaleType="centerCrop"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_news_detail_authors" />

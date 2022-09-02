@@ -1,20 +1,21 @@
 package com.syoon.news.app.ui.topnews
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.core.os.bundleOf
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.syoon.news.app.R
-import com.syoon.news.app.common.BaseFragment
 import com.syoon.news.app.databinding.FragmentTopNewsBinding
+import com.syoon.news.app.model.News
+import com.syoon.news.app.ui.common.BaseFragment
+import com.syoon.news.app.ui.common.EventObserver
 
 class TopNewsFragment: BaseFragment<FragmentTopNewsBinding>(FragmentTopNewsBinding::inflate) {
 
     private val topNewsViewModel: TopNewsViewModel by lazy {
-        ViewModelProvider(this).get(TopNewsViewModel::class.java)
+        ViewModelProvider(this)[TopNewsViewModel::class.java]
     }
 
 
@@ -22,17 +23,34 @@ class TopNewsFragment: BaseFragment<FragmentTopNewsBinding>(FragmentTopNewsBindi
         super.onViewCreated(view, savedInstanceState)
 
         setListAdapter()
+
+        topNewsViewModel.openNewsDetailEvent.observe(viewLifecycleOwner, EventObserver {
+            openNewsDetail(it.title, it.author, it.publishedAt, it.content, it.urlToImage)
+        })
+
 //        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) {
 //            Log.d("TopNewsFragment", "items=$it")
 //        }
 
     }
 
+    private fun openNewsDetail(
+        title: String, author: String, publishedAt: String, content: String, urlToImage: String
+    ) {
+        findNavController().navigate(R.id.action_navigation_top_news_to_news_detail, bundleOf(
+            "title" to title,
+            "author" to author,
+            "publishedAt" to publishedAt,
+            "content" to content,
+            "urlToImage" to urlToImage
+        ))
+    }
+
     private fun setListAdapter() {
-        val topNewsAdapter = TopNewsAdapter()
+        val topNewsAdapter = TopNewsAdapter(topNewsViewModel)
         binding.rvTopNews.adapter = topNewsAdapter
-        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) { topNews ->
-            topNewsAdapter.submitList(listOf(topNews))
+        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) { news ->
+            topNewsAdapter.submitList(news)
         }
     }
 }
