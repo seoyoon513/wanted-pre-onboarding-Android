@@ -6,18 +6,19 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_top_news"
+        android:id="@+id/toolbar_category_news"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/news_bluegrey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="News App"
-        app:titleTextAppearance="@style/TextTitle.Bold" />
+        app:navigationIcon="@drawable/ic_arrow_back_24"
+        app:titleTextAppearance="@style/TextTitle.Bold"
+        tools:title="Category - Sports" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_top_news"
+        android:id="@+id/rv_category_news"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -25,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_top_news"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_category_news"
         tools:listitem="@layout/item_top_news" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

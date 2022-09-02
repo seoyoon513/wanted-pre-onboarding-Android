@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_top_news"
         android:name="com.syoon.news.app.ui.topnews.TopNewsFragment"
-        android:label="@string/top_news"
+        android:label="TopNewsFragment"
         tools:layout="@layout/fragment_top_news" >
         <action
             android:id="@+id/action_navigation_top_news_to_news_detail"
@@ -18,13 +18,17 @@
     <fragment
         android:id="@+id/navigation_categories"
         android:name="com.syoon.news.app.ui.categories.CategoryFragment"
-        android:label="@string/categories"
-        tools:layout="@layout/fragment_category" />
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_navigation_categories_to_categoryNewsFragment"
+            app:destination="@id/navigation_category_news" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_saved"
         android:name="com.syoon.news.app.ui.SavedFragment"
-        android:label="@string/saved"
+        android:label="SavedFragment"
         tools:layout="@layout/fragment_saved" />
 
     <fragment
@@ -32,5 +36,15 @@
         android:name="com.syoon.news.app.ui.newsdetail.NewsDetailFragment"
         android:label="NewsDetailFragment"
         tools:layout="@layout/fragment_news_detail"/>
+
+    <fragment
+        android:id="@+id/navigation_category_news"
+        android:name="com.syoon.news.app.ui.categorynews.CategoryNewsFragment"
+        android:label="CategoryNewsFragment"
+        tools:layout="@layout/fragment_category_news">
+        <action
+            android:id="@+id/action_navigation_category_news_to_navigation_news_detail"
+            app:destination="@id/navigation_news_detail" />
+    </fragment>
 
 </navigation>

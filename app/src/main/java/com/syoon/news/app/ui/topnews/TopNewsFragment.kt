@@ -18,7 +18,6 @@ class TopNewsFragment: BaseFragment<FragmentTopNewsBinding>(FragmentTopNewsBindi
         ViewModelProvider(this)[TopNewsViewModel::class.java]
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -27,11 +26,14 @@ class TopNewsFragment: BaseFragment<FragmentTopNewsBinding>(FragmentTopNewsBindi
         topNewsViewModel.openNewsDetailEvent.observe(viewLifecycleOwner, EventObserver {
             openNewsDetail(it.title, it.author, it.publishedAt, it.content, it.urlToImage)
         })
+    }
 
-//        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) {
-//            Log.d("TopNewsFragment", "items=$it")
-//        }
-
+    private fun setListAdapter() {
+        val topNewsAdapter = TopNewsAdapter(topNewsViewModel)
+        binding.rvTopNews.adapter = topNewsAdapter
+        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) { news ->
+            topNewsAdapter.submitList(news)
+        }
     }
 
     private fun openNewsDetail(
@@ -44,13 +46,5 @@ class TopNewsFragment: BaseFragment<FragmentTopNewsBinding>(FragmentTopNewsBindi
             "content" to content,
             "urlToImage" to urlToImage
         ))
-    }
-
-    private fun setListAdapter() {
-        val topNewsAdapter = TopNewsAdapter(topNewsViewModel)
-        binding.rvTopNews.adapter = topNewsAdapter
-        topNewsViewModel.fetchNewsList().observe(viewLifecycleOwner) { news ->
-            topNewsAdapter.submitList(news)
-        }
     }
 }
