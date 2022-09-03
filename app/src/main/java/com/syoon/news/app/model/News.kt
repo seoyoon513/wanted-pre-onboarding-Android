@@ -13,8 +13,3 @@ data class TopNewsDto(
     val articles: List<News>
 )
 
-data class CategoryNewsDto(
-    val articles: List<News>
-)
-
-

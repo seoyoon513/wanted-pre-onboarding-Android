@@ -1,6 +1,5 @@
 package com.syoon.news.app.network
 
-import com.syoon.news.app.model.CategoryNewsDto
 import com.syoon.news.app.model.TopNewsDto
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -18,6 +17,6 @@ interface NewsApi {
     suspend fun getCategoryNews(
         @Query("apiKey") apikey: String,
         @Query("category") category: String
-    ): CategoryNewsDto
+    ): TopNewsDto
 
 }

@@ -24,7 +24,12 @@ class TopNewsFragment: BaseFragment<FragmentTopNewsBinding>(FragmentTopNewsBindi
         setListAdapter()
 
         topNewsViewModel.openNewsDetailEvent.observe(viewLifecycleOwner, EventObserver {
-            openNewsDetail(it.title, it.author, it.publishedAt, it.content, it.urlToImage)
+            openNewsDetail(
+                it.title,
+                it.author,
+                it.publishedAt,
+                it.content,
+                it.urlToImage)
         })
     }
 

@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.syoon.news.app.R
+import com.syoon.news.app.databinding.FragmentCategoryNewsBinding
+import com.syoon.news.app.databinding.FragmentSavedBinding
+import com.syoon.news.app.ui.common.BaseFragment
 
-class SavedFragment: Fragment() {
+class SavedFragment: BaseFragment<FragmentSavedBinding>(FragmentSavedBinding::inflate) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_saved, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

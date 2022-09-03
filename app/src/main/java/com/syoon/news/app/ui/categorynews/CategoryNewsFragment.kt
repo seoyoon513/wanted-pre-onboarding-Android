@@ -5,7 +5,6 @@ import android.view.View
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.syoon.news.app.R
 import com.syoon.news.app.databinding.FragmentCategoryNewsBinding
 import com.syoon.news.app.ui.common.BaseFragment
@@ -24,12 +23,20 @@ class CategoryNewsFragment :
         super.onViewCreated(view, savedInstanceState)
 
         val category = requireArguments().getString("category")
-        binding.toolbarCategoryNews.title = "Category - $category"
+        val upperCharacter = category?.substring(0, 1)?.uppercase()
+        val categoryTitle = upperCharacter + category?.substring(1, category.length)
+        binding.toolbarCategoryNews.title = "Category - $categoryTitle"
 
         setListAdapter(category.toString())
 
         topNewsViewModel.openNewsDetailEvent.observe(viewLifecycleOwner, EventObserver {
-            openNewsDetail(it.title, it.author, it.publishedAt, it.content, it.urlToImage)
+            openNewsDetail(
+                it.title,
+                it.author,
+                it.publishedAt,
+                it.content,
+                it.urlToImage
+            )
         })
 
         setNavigation()
@@ -44,7 +51,11 @@ class CategoryNewsFragment :
     }
 
     private fun openNewsDetail(
-        title: String, author: String, publishedAt: String, content: String, urlToImage: String
+        title: String,
+        author: String,
+        publishedAt: String,
+        content: String,
+        urlToImage: String
     ) {
         findNavController().navigate(
             R.id.action_navigation_category_news_to_navigation_news_detail, bundleOf(
