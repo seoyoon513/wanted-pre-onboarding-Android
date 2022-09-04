@@ -36,7 +36,6 @@ class NewsDetailFragment: BaseFragment<FragmentNewsDetailBinding>(FragmentNewsDe
 
         //star image click event
         binding.ivStar.setOnClickListener {
-            binding.ivStar.setImageResource(R.drawable.ic_star_filled_24)
 
         }
     }

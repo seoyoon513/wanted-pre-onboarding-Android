@@ -1,4 +1,4 @@
-package com.syoon.news.app.ui.categories
+package com.syoon.news.app.ui.category
 
 import android.os.Bundle
 import android.view.View

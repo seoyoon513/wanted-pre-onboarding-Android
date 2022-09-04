@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_categories"
-        android:name="com.syoon.news.app.ui.categories.CategoryFragment"
+        android:name="com.syoon.news.app.ui.category.CategoryFragment"
         android:label="CategoryFragment"
         tools:layout="@layout/fragment_category" >
         <action
