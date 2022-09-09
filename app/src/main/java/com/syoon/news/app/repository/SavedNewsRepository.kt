@@ -1,12 +1,13 @@
 package com.syoon.news.app.repository
 
+import android.app.Application
+import com.syoon.news.app.database.AppDataBase
 import com.syoon.news.app.database.SavedNewsDao
-import com.syoon.news.app.model.News
-import com.syoon.news.app.model.SavedNews
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.syoon.news.app.database.SavedNews
 
-class SavedNewsRepository(private val dao: SavedNewsDao) {
+class SavedNewsRepository {
+
+    private val dao = AppDataBase.getDao()
 
     suspend fun getSavedNews(): List<SavedNews> {
         return dao.getAll()

@@ -1,17 +1,17 @@
-package com.syoon.news.app.ui
+package com.syoon.news.app.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.syoon.news.app.model.SavedNews
+import com.syoon.news.app.database.AppDataBase
+import com.syoon.news.app.database.SavedNews
 import com.syoon.news.app.repository.SavedNewsRepository
 import kotlinx.coroutines.launch
 
 class SavedNewsViewModel: ViewModel() {
 
-    private val savedNewsRepository: SavedNewsRepository = TODO()
-
+    private val savedNewsRepository = SavedNewsRepository()
     private val newsList = MutableLiveData<List<SavedNews>>()
 
     fun fetchSavedNews(): LiveData<List<SavedNews>> {

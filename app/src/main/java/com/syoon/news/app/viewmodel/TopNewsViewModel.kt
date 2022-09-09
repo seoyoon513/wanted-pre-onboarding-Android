@@ -1,4 +1,4 @@
-package com.syoon.news.app.ui.topnews
+package com.syoon.news.app.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

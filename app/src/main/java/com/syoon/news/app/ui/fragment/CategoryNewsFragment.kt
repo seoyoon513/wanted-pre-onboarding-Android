@@ -1,4 +1,4 @@
-package com.syoon.news.app.ui.categorynews
+package com.syoon.news.app.ui.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.syoon.news.app.R
 import com.syoon.news.app.databinding.FragmentCategoryNewsBinding
+import com.syoon.news.app.model.News
+import com.syoon.news.app.ui.adapter.TopNewsAdapter
 import com.syoon.news.app.ui.common.BaseFragment
-import com.syoon.news.app.ui.common.EventObserver
-import com.syoon.news.app.ui.topnews.TopNewsAdapter
-import com.syoon.news.app.ui.topnews.TopNewsViewModel
+import com.syoon.news.app.viewmodel.TopNewsViewModel
 
 class CategoryNewsFragment :
     BaseFragment<FragmentCategoryNewsBinding>(FragmentCategoryNewsBinding::inflate) {
@@ -28,44 +28,15 @@ class CategoryNewsFragment :
         binding.toolbarCategoryNews.title = "Category - $categoryTitle"
 
         setListAdapter(category.toString())
-
-        topNewsViewModel.openNewsDetailEvent.observe(viewLifecycleOwner, EventObserver {
-            openNewsDetail(
-                it.title,
-                it.author,
-                it.publishedAt,
-                it.content,
-                it.urlToImage
-            )
-        })
-
         setNavigation()
     }
 
     private fun setListAdapter(category: String) {
-        val topNewsAdapter = TopNewsAdapter(topNewsViewModel)
+        val topNewsAdapter = TopNewsAdapter()
         binding.rvCategoryNews.adapter = topNewsAdapter
         topNewsViewModel.fetchCategoryNews(category).observe(viewLifecycleOwner) { news ->
             topNewsAdapter.submitList(news)
         }
-    }
-
-    private fun openNewsDetail(
-        title: String,
-        author: String,
-        publishedAt: String,
-        content: String,
-        urlToImage: String
-    ) {
-        findNavController().navigate(
-            R.id.action_navigation_category_news_to_navigation_news_detail, bundleOf(
-                "title" to title,
-                "author" to author,
-                "publishedAt" to publishedAt,
-                "content" to content,
-                "urlToImage" to urlToImage
-            )
-        )
     }
 
     private fun setNavigation() {

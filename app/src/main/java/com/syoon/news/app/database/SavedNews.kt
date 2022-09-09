@@ -1,4 +1,4 @@
-package com.syoon.news.app.model
+package com.syoon.news.app.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "saved_news")
 data class SavedNews(
     @PrimaryKey(autoGenerate = true)
-    val id: Long?,
+    val id: Int? = 0,
     val author: String,
     val title: String,
     val description: String,
