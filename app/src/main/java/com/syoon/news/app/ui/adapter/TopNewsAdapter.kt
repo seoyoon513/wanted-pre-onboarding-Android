@@ -27,22 +27,15 @@ class TopNewsAdapter :
         holder.bind(getItem(position))
     }
 
+
     inner class TopNewsViewHolder(private val binding: ItemTopNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(news: News) {
 
-            var newsItem = News(
-                news.author,
-                news.title,
-                news.urlToImage,
-                news.publishedAt,
-                news.content,
-            )
-
             itemView.setOnClickListener { view ->
                 // global action
-                val action = NewsDetailFragmentDirections.actionGlobalNavigationNewsDetail(newsItem)
+                val action = NewsDetailFragmentDirections.actionGlobalNavigationNewsDetail(news)
                 view.findNavController().navigate(action)
             }
 
@@ -55,7 +48,7 @@ class TopNewsAdapter :
 
 class TopNewsDiffCallback : DiffUtil.ItemCallback<News>() {
     override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
-        return oldItem == newItem
+        return oldItem.title == newItem.title
     }
 
     override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {

@@ -6,13 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "saved_news")
 data class SavedNews(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int? = 0,
-    val author: String,
+    @PrimaryKey
     val title: String,
-    val description: String,
+    val author: String,
     @ColumnInfo(name = "url_to_image")val urlToImage: String,
     @ColumnInfo(name = "published_at")val publishedAt: String,
     val content: String,
-    @ColumnInfo(name = "is_saved_news")val isSavedNews: Boolean = true
+    @ColumnInfo(name = "is_saved_news") var isSavedNews: Boolean
 )

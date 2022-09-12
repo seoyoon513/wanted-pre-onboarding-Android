@@ -12,8 +12,6 @@ abstract class AppDataBase: RoomDatabase() {
 
     companion object {
 
-        private lateinit var dataBase: AppDataBase
-
         @Volatile
         private var INSTANCE: AppDataBase? = null
 
@@ -34,7 +32,5 @@ abstract class AppDataBase: RoomDatabase() {
                 return instance
             }
         }
-
-        fun getDao(): SavedNewsDao = dataBase.savedNewsDao()
     }
 }

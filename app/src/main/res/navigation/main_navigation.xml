@@ -50,6 +50,6 @@
             android:id="@+id/action_navigation_category_news_to_navigation_news_detail"
             app:destination="@id/navigation_news_detail" />
     </fragment>
-    <action android:id="@+id/action_global_navigation_news_detail" app:destination="@id/navigation_news_detail"/>
+    <action android:id="@+id/action_global_navigation_news_detail" app:destination="@id/navigation_news_detail" />
 
 </navigation>
