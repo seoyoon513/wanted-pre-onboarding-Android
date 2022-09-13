@@ -13,7 +13,7 @@ import com.syoon.news.app.ui.common.BaseFragment
 import com.syoon.news.app.viewmodel.TopNewsViewModel
 
 class CategoryNewsFragment :
-    BaseFragment<FragmentCategoryNewsBinding>(FragmentCategoryNewsBinding::inflate) {
+    BaseFragment<FragmentCategoryNewsBinding>(R.layout.fragment_category_news) {
 
     private val topNewsViewModel: TopNewsViewModel by lazy {
         ViewModelProvider(this)[TopNewsViewModel::class.java]

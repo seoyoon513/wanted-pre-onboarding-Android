@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.syoon.news.app.R
 import com.syoon.news.app.databinding.FragmentSavedBinding
 import com.syoon.news.app.model.News
 import com.syoon.news.app.repository.SavedNewsRepository
@@ -14,7 +15,7 @@ import com.syoon.news.app.ui.common.ViewModelFactory
 import com.syoon.news.app.viewmodel.SavedNewsViewModel
 import com.syoon.news.app.viewmodel.TopNewsViewModel
 
-class SavedFragment: BaseFragment<FragmentSavedBinding>(FragmentSavedBinding::inflate) {
+class SavedFragment: BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved) {
 
     private val savedNewsViewModel: SavedNewsViewModel by lazy {
         ViewModelProvider(this, ViewModelFactory(SavedNewsRepository(requireContext())))[SavedNewsViewModel::class.java]

@@ -1,141 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_category"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:background="@color/news_bluegrey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Category"
-        app:titleTextAppearance="@style/TextTitle.Bold" />
+    <data>
 
-    <TextView
-        android:id="@+id/tv_category_banner"
-        style="@style/TextTitle.Bold"
-        android:layout_width="251dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:maxLines="2"
-        android:text="@string/category_guide"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_category" />
+    </data>
 
-    <Button
-        android:id="@+id/btn_category_business"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/background_circle"
-        android:text="@string/business"
-        android:textAllCaps="false"
-        android:textSize="11sp"
-        app:icon="@drawable/ic_monetization_on_24"
-        app:iconGravity="textTop"
-        app:iconSize="35dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_category_banner" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_category_entertainment"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background_circle"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/entertainment"
-        android:textAllCaps="false"
-        android:textSize="11sp"
-        app:icon="@drawable/ic_music_note_24"
-        app:iconGravity="textTop"
-        app:iconSize="35dp"
-        app:layout_constraintEnd_toStartOf="@id/btn_category_general"
-        app:layout_constraintStart_toEndOf="@id/btn_category_business"
-        app:layout_constraintTop_toTopOf="@id/btn_category_business" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_category"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:background="@color/news_bluegrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Category"
+            app:titleTextAppearance="@style/TextTitle.Bold" />
 
-    <Button
-        android:id="@+id/btn_category_general"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="30sp"
-        android:background="@drawable/background_circle"
-        android:text="@string/general"
-        android:textAllCaps="false"
-        android:textSize="11sp"
-        app:icon="@drawable/ic_groups_24"
-        app:iconGravity="textTop"
-        app:iconSize="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btn_category_entertainment" />
+        <TextView
+            android:id="@+id/tv_category_banner"
+            style="@style/TextTitle.Bold"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:maxLines="2"
+            android:text="@string/category_guide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_category" />
 
-    <Button
-        android:id="@+id/btn_category_health"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/background_circle"
-        android:text="@string/health"
-        android:textAllCaps="false"
-        android:textSize="11sp"
-        app:icon="@drawable/ic_fitness_center_24"
-        app:iconGravity="textTop"
-        app:iconSize="35dp"
-        app:layout_constraintStart_toStartOf="@id/btn_category_business"
-        app:layout_constraintTop_toBottomOf="@id/btn_category_business" />
+        <Button
+            android:id="@+id/btn_category_business"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/background_circle"
+            android:text="@string/business"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            app:icon="@drawable/ic_monetization_on_24"
+            app:iconGravity="textTop"
+            app:iconSize="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_category_banner" />
 
-    <Button
-        android:id="@+id/btn_category_science"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background_circle"
-        android:text="@string/science"
-        android:textAllCaps="false"
-        android:textSize="11sp"
-        app:icon="@drawable/ic_science_24"
-        app:iconGravity="textTop"
-        app:iconSize="35dp"
-        app:layout_constraintEnd_toStartOf="@id/btn_category_sport"
-        app:layout_constraintStart_toEndOf="@id/btn_category_health"
-        app:layout_constraintTop_toTopOf="@id/btn_category_health" />
+        <Button
+            android:id="@+id/btn_category_entertainment"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/background_circle"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/entertainment"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            app:icon="@drawable/ic_music_note_24"
+            app:iconGravity="textTop"
+            app:iconSize="35dp"
+            app:layout_constraintEnd_toStartOf="@id/btn_category_general"
+            app:layout_constraintStart_toEndOf="@id/btn_category_business"
+            app:layout_constraintTop_toTopOf="@id/btn_category_business" />
 
-    <Button
-        android:id="@+id/btn_category_sport"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/background_circle"
-        android:text="@string/sports"
-        android:textAllCaps="false"
-        android:textSize="11sp"
-        app:icon="@drawable/ic_sports_soccer_24"
-        app:iconGravity="textTop"
-        app:iconSize="35dp"
-        app:layout_constraintEnd_toEndOf="@id/btn_category_general"
-        app:layout_constraintTop_toTopOf="@id/btn_category_science" />
+        <Button
+            android:id="@+id/btn_category_general"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="30sp"
+            android:background="@drawable/background_circle"
+            android:text="@string/general"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            app:icon="@drawable/ic_groups_24"
+            app:iconGravity="textTop"
+            app:iconSize="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_category_entertainment" />
 
-    <Button
-        android:id="@+id/btn_category_technology"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/background_circle"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/technology"
-        android:textAllCaps="false"
-        android:textSize="11sp"
-        app:icon="@drawable/ic_build_24"
-        app:iconGravity="textTop"
-        app:iconSize="35dp"
+        <Button
+            android:id="@+id/btn_category_health"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/background_circle"
+            android:text="@string/health"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            app:icon="@drawable/ic_fitness_center_24"
+            app:iconGravity="textTop"
+            app:iconSize="35dp"
+            app:layout_constraintStart_toStartOf="@id/btn_category_business"
+            app:layout_constraintTop_toBottomOf="@id/btn_category_business" />
 
-        app:layout_constraintStart_toStartOf="@id/btn_category_health"
-        app:layout_constraintTop_toBottomOf="@id/btn_category_health" />
+        <Button
+            android:id="@+id/btn_category_science"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/background_circle"
+            android:text="@string/science"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            app:icon="@drawable/ic_science_24"
+            app:iconGravity="textTop"
+            app:iconSize="35dp"
+            app:layout_constraintEnd_toStartOf="@id/btn_category_sport"
+            app:layout_constraintStart_toEndOf="@id/btn_category_health"
+            app:layout_constraintTop_toTopOf="@id/btn_category_health" />
+
+        <Button
+            android:id="@+id/btn_category_sport"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/background_circle"
+            android:text="@string/sports"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            app:icon="@drawable/ic_sports_soccer_24"
+            app:iconGravity="textTop"
+            app:iconSize="35dp"
+            app:layout_constraintEnd_toEndOf="@id/btn_category_general"
+            app:layout_constraintTop_toTopOf="@id/btn_category_science" />
+
+        <Button
+            android:id="@+id/btn_category_technology"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/background_circle"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/technology"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            app:icon="@drawable/ic_build_24"
+            app:iconGravity="textTop"
+            app:iconSize="35dp"
+
+            app:layout_constraintStart_toStartOf="@id/btn_category_health"
+            app:layout_constraintTop_toBottomOf="@id/btn_category_health" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

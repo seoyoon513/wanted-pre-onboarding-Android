@@ -11,6 +11,7 @@ class SavedNewsViewModel(private val savedNewsRepository: SavedNewsRepository): 
 {
 
     private val newsList = MutableLiveData<List<News>>()
+    private val savedNews = MutableLiveData<SavedNews>()
 
     fun addNews(news: SavedNews) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -29,5 +30,15 @@ class SavedNewsViewModel(private val savedNewsRepository: SavedNewsRepository): 
             savedNewsRepository.getAllSavedData()
         }
         return newsList
+    }
+
+    fun isSaved(news: SavedNews) {
+        viewModelScope.launch(Dispatchers.IO) {
+            if (news.isSaved) {
+                deleteNews(news)
+            } else {
+                addNews(news)
+            }
+        }
     }
 }

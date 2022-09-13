@@ -8,7 +8,7 @@ import com.syoon.news.app.R
 import com.syoon.news.app.databinding.FragmentCategoryBinding
 import com.syoon.news.app.ui.common.BaseFragment
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate) {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment_category) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -12,5 +12,5 @@ data class SavedNews(
     @ColumnInfo(name = "url_to_image")val urlToImage: String,
     @ColumnInfo(name = "published_at")val publishedAt: String,
     val content: String,
-    @ColumnInfo(name = "is_saved_news") var isSavedNews: Boolean
+    @ColumnInfo(name = "is_saved") var isSaved: Boolean
 )
