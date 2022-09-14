@@ -9,7 +9,8 @@ News API를 활용한 android 뉴스앱 입니다.
 * 해당 뉴스 클릭 시 adapter에서 글로벌 액션으로 처리하여 불필요한 코드를 줄였습니다
 
 ### TopNews
-<img src
+![Screenshot_20220914_222638](https://user-images.githubusercontent.com/110798031/190167327-3e294e45-5c3d-487c-a017-d12ee2cc59dc.png)
+![Screenshot_detail](https://user-images.githubusercontent.com/110798031/190167340-92dd2197-92d7-4250-bee7-e3dabf4b8d65.png)
 
 ## 구조
 ```bash
