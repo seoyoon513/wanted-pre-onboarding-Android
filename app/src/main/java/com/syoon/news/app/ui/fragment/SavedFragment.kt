@@ -31,20 +31,20 @@ class SavedFragment: BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved)
         val topNewsAdapter = TopNewsAdapter()
         binding.rvSavedNews.adapter = topNewsAdapter
         savedNewsViewModel.fetchSavedList().observe(viewLifecycleOwner) { saved ->
-//            val savedNewsList = mutableListOf<News>()
-//
-//            for(i in saved.toMutableList()) {
-//                var news = News(
-//                    i.author,
-//                    i.title,
-//                    i.urlToImage,
-//                    i.publishedAt,
-//                    i.content)
-//
-//                savedNewsList.add(news)
-//            }
+            val savedNewsList = mutableListOf<News>()
 
-            topNewsAdapter.submitList(saved)
+            for(i in saved.toMutableList()) {
+                var news = News(
+                    title = i.title,
+                    author = i.author,
+                    urlToImage = i.urlToImage,
+                    publishedAt = i.publishedAt,
+                    content = i.content)
+
+                savedNewsList.add(news)
+            }
+
+            topNewsAdapter.submitList(savedNewsList)
         }
     }
 

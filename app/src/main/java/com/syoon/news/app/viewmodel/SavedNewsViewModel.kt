@@ -10,8 +10,7 @@ import kotlinx.coroutines.launch
 class SavedNewsViewModel(private val savedNewsRepository: SavedNewsRepository): ViewModel()
 {
 
-    private val newsList = MutableLiveData<List<News>>()
-    private val savedNews = MutableLiveData<SavedNews>()
+    private val savedNews = MutableLiveData<List<SavedNews>>()
 
     fun addNews(news: SavedNews) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -25,11 +24,11 @@ class SavedNewsViewModel(private val savedNewsRepository: SavedNewsRepository): 
         }
     }
 
-    fun fetchSavedList(): LiveData<List<News>> {
+    fun fetchSavedList(): LiveData<List<SavedNews>> {
         viewModelScope.launch(Dispatchers.IO) {
             savedNewsRepository.getAllSavedData()
         }
-        return newsList
+        return savedNews
     }
 
     fun isSaved(news: SavedNews) {

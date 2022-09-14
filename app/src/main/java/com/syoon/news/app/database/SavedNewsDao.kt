@@ -16,4 +16,7 @@ interface SavedNewsDao {
     @Delete
     suspend fun delete(savedNews: SavedNews)
 
+    @Query("SELECT is_saved FROM saved_news WHERE title = :title")
+    fun getBookmark(title: String): Boolean
+
 }

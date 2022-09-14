@@ -5,11 +5,9 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
 import com.syoon.news.app.R
 import com.syoon.news.app.database.SavedNews
 import com.syoon.news.app.databinding.FragmentNewsDetailBinding
-import com.syoon.news.app.model.News
 import com.syoon.news.app.repository.SavedNewsRepository
 import com.syoon.news.app.ui.common.BaseFragment
 import com.syoon.news.app.ui.common.ViewModelFactory
@@ -31,38 +29,36 @@ class NewsDetailFragment: BaseFragment<FragmentNewsDetailBinding>(R.layout.fragm
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val news = args.news
 
         setNavigation()
-        binding.news = args.news
+        binding.news = news
 
         //star image click event
         binding.ivStar.setOnClickListener {
-//            val saved = SavedNews(
-//                newsTitle.toString(),
-//                newsAuthor.toString(),
-//                newsImage.toString(),
-//                newsTime.toString(),
-//                newsContent.toString(),
-//                false
-//            )
-//
-//            it.isSelected = !it.isSelected
-//            savedNewsViewModel.addNews(saved)
+            val saved = SavedNews(
+                news.title.toString(),
+                news.author.toString(),
+                news.urlToImage.toString(),
+                news.publishedAt.toString(),
+                news.content.toString(),
+                false
+            )
 
+            if(!saved.isSaved) {
+                it.isSelected = !it.isSelected
+                savedNewsViewModel.addNews(saved)
+                saved.isSaved = true
 
-//            if(!saved.isSavedNews) {
-//                saved.isSavedNews = true
-//                it.isSelected = !it.isSelected
-//                savedNewsViewModel.addNews(saved)
-//
-//            } else {
-//                saved.isSavedNews = false
-//                it.isSelected = !it.isSelected
-//                savedNewsViewModel.deleteNews(saved)
-//            }
+            } else {
+                it.isSelected = !it.isSelected
+                savedNewsViewModel.deleteNews(saved)
+                saved.isSaved = false
+            }
 
         }
     }
+
 
     private fun setNavigation() {
         binding.toolbarNewsDetail.setNavigationOnClickListener {

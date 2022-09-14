@@ -1,6 +1,7 @@
 package com.syoon.news.app.repository
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import com.syoon.news.app.database.AppDataBase
 import com.syoon.news.app.database.SavedNewsDao
 import com.syoon.news.app.database.SavedNews
@@ -19,10 +20,15 @@ class SavedNewsRepository(context: Context) {
         dao.delete(savedNews)
     }
 
-    fun getAllSavedData(): List<News> {
-        return dao.getAll().map { newsList ->
-            SavedNewsMapper.savedToNews(newsList)
+    fun getAllSavedData(): List<SavedNews> {
+        return dao.getAll()
+    }
+
+    fun getBookMark(title: String): Boolean {
+        if(dao.getBookmark(title) != null) {
+            return true
         }
+        return false
     }
 
 }
