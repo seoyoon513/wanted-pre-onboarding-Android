@@ -35,7 +35,7 @@ News API를 활용한 android 뉴스앱 입니다.
 │   └── TopNewsRepository
 ├── ui
 │   ├── adapter
-│   │   └── TopNewsRepository
+│   │   └── TopNewsAdapter
 │   ├── common
 │   │   ├── BaseFragment
 │   │   ├── ImageBindingAdapter
